@@ -4,42 +4,151 @@
 	font-family: "Nova Square", cursive;
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
 body {
 	background-color: #333;
 	height: 100vh;
 	overflow: hidden;
 }
+nav {
+	display: flex;
+	justify-content: space-around;
+	padding-block: 1rem;
+}
+#info {
+	color: rgb(0, 119, 255);
+	cursor: pointer;
+	font-size: 2.5rem;
+	transition: color 200ms;
+}
+#info:hover {
+	color: rgb(0, 195, 255);
+}
+.info {
+	align-items: center;
+	background-color: #333;
+	border-radius: 10px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+	gap: 1rem;
+	justify-content: space-evenly;
+	left: 50%;
+	min-height: 350px;
+	padding: 1rem;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+#ok{
+	background-color: rebeccapurple;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	color: white;
+	cursor: pointer;
+	font-size: 1.5rem;
+	height: 3rem;
+	transition: background-color 200ms, scale 200ms;
+	width: 4rem;
+}
+#ok:hover {
+	background-color: rgb(77, 35, 119);
+	scale: 1.05;
+}
+.increase-decrease {
+	background-color: rebeccapurple;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	color: white;
+	cursor: pointer;
+	font-size: 1.5rem;
+	height: 2rem;
+	transition: background-color 200ms, scale 200ms;
+	width: 2rem;
+}
 .timer {
 	color: white;
-	font-size: 3.5rem;
-	left: 50%;
-	position: absolute;
-	top: 0.5rem;
-	transform: translateX(-50%);
+	font-size: 2.5rem;
+}
+#subtract,
+#add {
+	background-color: #555;
+	border: 2px solid black;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1.7rem;
+	padding: 0.3rem 0.5rem;
+	transition: background 200ms;
+}
+#subtract:hover,
+#add:hover {
+	background-color: #777;
 }
 .score {
 	color: white;
-	font-size: 3rem;
-	position: absolute;
-	right: 1rem;
-	top: 0.5rem;
-	user-select: none;
+	font-size: 2.5rem;
 }
 .container {
-	background-color: whitesmoke;
-	height: 92vh;
-	margin-top: 5rem;
+	background-color: lightcyan;
+	height: 100vh;
 }
 .ball {
+	align-items: center;
 	aspect-ratio: 1/1;
 	background-color: rebeccapurple;
 	border-radius: 50%;
+	color: greenyellow;
 	cursor: pointer;
-	transition: background-color 300ms;
-	width: 200px;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 0 0.3rem;
+	position: relative;
+	text-align: center;
+	transition: background-color 200ms;
+	width: 100px;
 }
 .ball:hover {
 	background-color: rgb(77, 35, 119);
+}
+#restart-game {
+	animation: restart 500ms infinite alternate-reverse linear;
+	background-color: orange;
+	border-radius: 5px;
+	bottom: 5vh;
+	box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.6);
+	color: white;
+	cursor: pointer;
+	font-size: 4rem;
+	left: 50%;
+	line-height: 3rem;
+	padding: 0.3rem;
+	position: absolute;
+	transform: translate(-50%);
+	transition: background 200ms ease;
+}
+#restart-game:hover {
+	background-color: rgb(221, 146, 6);
+}
+@keyframes restart {
+	from {
+		scale: 1;
+	}
+	to {
+		scale: 1.07;
+	}
+}
+
+.center {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+.disable {
+	pointer-events: none;
+}
+.hide {
+	display: none;
 }

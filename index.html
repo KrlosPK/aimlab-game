@@ -4,15 +4,44 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cursor Follower APP | KrlosPK</title>
+		<title>Aimlab Game | KrlosPK</title>
+		<link
+			rel="shortcut icon"
+			href="images/favicon.png"
+			type="image/x-icon"
+		/>
 		<link rel="stylesheet" href="style.css" />
 		<script src="script.js" defer></script>
+		<!-- Sweet Alert -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</head>
 	<body>
-		<div class="score">0</div>
-		<div class="timer"><span id="seconds">30</span> seconds</div>
-		<div class="container">
-			<div class="ball"></div>
+		<nav>
+			<span id="info">ⓘ</span>
+			<div class="info hide">
+				<h2>How to play:</h2>
+				<p>
+					You need to click de ball in order to increment your score
+					as fast as you can, you also can increment or decrement the
+					timer.
+					<br />
+					<br />
+					Good luck have fun!
+				</p>
+				<div class="width"><button class="increase-decrease" id="decrease">-</button> width: <span id="width"></span> <button class="increase-decrease" id="increase">+</button></div>
+				<button id="ok">Ok</button>
+			</div>
+			<div class="timer">
+				<span id="subtract">-</span><span id="seconds"></span> seconds
+				<span id="add">+</span>
+			</div>
+			<div class="score">Score: <span id="score"></span></div>
+		</nav>
+		<div class="container center">
+			<div class="ball">
+				<p id="start">Click me to start!</p>
+			</div>
+			<div id="restart-game" class="hide">&#8634;</div>
 		</div>
 	</body>
 </html>
