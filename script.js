@@ -13,6 +13,14 @@ const startGameEl = document.querySelector(".start-game");
 const decrease = document.querySelector("#decrease");
 const increase = document.querySelector("#increase");
 const widthEl = document.querySelector("#width");
+const highscoreEl = document.querySelector("#highscore");
+
+// Localstorage
+if (localStorage.getItem("highscore")) {
+	highscoreEl.textContent = localStorage.getItem("highscore");
+} else {
+	localStorage.setItem("highscore", "0");
+}
 
 let seconds = 10;
 let score = 0;
@@ -21,6 +29,12 @@ const hit = new Audio("/sounds/hit.wav");
 const win = new Audio("/sounds/win.wav");
 const lose = new Audio("/sounds/lose.wav");
 let width = 100;
+let highscore = localStorage.getItem("highscore");
+
+const getHighscore = () => {
+	if (score > highscore) localStorage.setItem("highscore", score);
+	highscoreEl.textContent = localStorage.getItem("highscore");
+};
 
 secondsEl.textContent = " " + seconds;
 scoreEl.textContent = score;
@@ -72,6 +86,7 @@ ballEl.addEventListener("click", () => {
 	incrementScore();
 	if (a) timer();
 	a = false;
+	getHighscore();
 });
 const timer = () => {
 	subtractEl.classList.add("disable");
@@ -85,7 +100,7 @@ const timer = () => {
 			subtractEl.classList.add("disable");
 			addEl.classList.add("disable");
 			restartGameEl.classList.remove("hide");
-			if (score >= 15) {
+			if (score >= 20) {
 				Swal.fire({
 					icon: "success",
 					title: "Congrats!",
@@ -97,7 +112,7 @@ const timer = () => {
 				Swal.fire({
 					icon: "error",
 					title: "Keep trying!",
-					text: `Your Score is: ${score}`,
+					text: `The goal is 20. Your Score is: ${score}`,
 					allowOutsideClick: false,
 				});
 				lose.play();
