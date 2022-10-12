@@ -12,7 +12,9 @@ body {
 	overflow: hidden;
 }
 nav {
+	align-items: center;
 	display: flex;
+	flex-direction: row-reverse;
 	justify-content: space-around;
 	padding-block: 1rem;
 }
@@ -76,10 +78,11 @@ nav {
 	gap: 1rem;
 }
 .time {
+	align-items: center;
 	display: flex;
+	gap: 1rem;
 	justify-content: center;
 	width: 15rem;
-	gap: 1rem;
 }
 #subtract,
 #add {
@@ -98,6 +101,7 @@ nav {
 .score {
 	color: white;
 	font-size: 2.5rem;
+	width: 12rem;
 }
 .container {
 	background-color: lightcyan;
@@ -159,4 +163,38 @@ nav {
 }
 .hide {
 	display: none;
+}
+
+/** Media Queries */
+@media only screen and (max-width: 730px) {
+	#info,
+	.timer,
+	.score {
+		font-size: 1.5rem;
+	}
+	.score {
+		width: 8rem;
+	}
+	.info {
+		width: 80%;
+	}
+	.time {
+		width: 8rem;
+	}
+}
+@media only screen and (max-width: 530px) {
+	#info,
+	.timer,
+	.score {
+		font-size: 1.2rem;
+	}
+	.score {
+		width: 6rem;
+	}
+	.info {
+		width: 90%;
+	}
+	.time {
+		width: 6rem;
+	}
 }
