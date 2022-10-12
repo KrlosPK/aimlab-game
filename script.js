@@ -16,11 +16,9 @@ const widthEl = document.querySelector("#width");
 const highscoreEl = document.querySelector("#highscore");
 
 // Localstorage
-if (localStorage.getItem("highscore")) {
-	highscoreEl.textContent = localStorage.getItem("highscore");
-} else {
-	localStorage.setItem("highscore", "0");
-}
+localStorage.getItem("highscore")
+	? (highscoreEl.textContent = localStorage.getItem("highscore"))
+	: localStorage.setItem("highscore", "0");
 
 let seconds = 10;
 let score = 0;
