@@ -86,10 +86,11 @@ nav {
 }
 #subtract,
 #add {
+	align-items: center;
 	background-color: #555;
 	border: 2px solid black;
 	cursor: pointer;
-	display: inline-block;
+	display: flex;
 	line-height: 1.7rem;
 	padding: 0.3rem 0.5rem;
 	transition: background 200ms;
